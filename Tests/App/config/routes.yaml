@@ -1,0 +1,3 @@
+index:
+  path: /
+  controller: Kna\MoneyBundle\Tests\App\Controller\DefaultController::index

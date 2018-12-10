@@ -1,5 +1,15 @@
 version: "3.6"
 services:
+  nginx:
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    depends_on:
+    - php
+    volumes:
+    - $PWD/Tests/App/public:/var/www/html/Tests/App/public
+    ports:
+    - 80:80
   php:
     build:
       context: .
