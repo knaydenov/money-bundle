@@ -9,20 +9,5 @@
 
         <service id="kna_money.formatter.aggregate" class="Money\Formatter\AggregateMoneyFormatter" public="true" />
         <service id="Money\Formatter\AggregateMoneyFormatter" alias="kna_money.formatter.aggregate"/>
-
-        <service id="Kna\MoneyBundle\Form\DataTransformer\CurrencyToStringTransformer" />
-        <service id="Kna\MoneyBundle\Form\DataTransformer\MoneyToArrayTransformer" />
-
-        <service id="Kna\MoneyBundle\Form\Type\CurrencyType">
-            <argument type="service" id="kna_money.currencies.aggregate" />
-            <argument type="service" id="Kna\MoneyBundle\Form\DataTransformer\CurrencyToStringTransformer" />
-            <tag name="form.type" />
-        </service>
-
-        <service id="Kna\MoneyBundle\Form\Type\MoneyType">
-            <argument type="service" id="Kna\MoneyBundle\Form\DataTransformer\MoneyToArrayTransformer" />
-            <tag name="form.type" />
-        </service>
-
     </services>
 </container>
