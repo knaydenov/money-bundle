@@ -1,0 +1,24 @@
+version: "3.6"
+services:
+  php:
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
+    depends_on:
+    - postgres
+    volumes:
+    - $PWD:/var/www/html
+    environment:
+      APP_ENV: dev
+      APP_SECRET: notASecret
+    user: $UID:$GID
+  postgres:
+    image: postgres:10
+    volumes:
+    - /var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  adminer:
+    image: adminer
+    ports:
+    - 8080:8080

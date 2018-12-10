@@ -1,0 +1,11 @@
+Kna\MoneyBundle\Tests\App\Entity\Account:
+  type: entity
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+
+  embedded:
+    balance:
+      class: Money\Money

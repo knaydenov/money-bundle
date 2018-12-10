@@ -1,0 +1,33 @@
+{
+    "name": "kna/money-bundle",
+    "description": "This bundle integrates moneyphp/money into symfony.",
+    "type": "symfony-bundle",
+    "autoload" : {
+        "psr-4" : { "Kna\\MoneyBundle\\" : "" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kna\\MoneyBundle\\Tests\\App\\": "Tests/App/src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Klim Naydenov",
+            "email": "knaydenov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "symfony/framework-bundle": "^4.0",
+        "doctrine/doctrine-bundle": "^1.10",
+        "doctrine/orm": "^2.6",
+        "symfony/console": "^4.0",
+        "moneyphp/money": "^3.2",
+        "symfony/yaml": "^4.0"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^4.0",
+        "doctrine/doctrine-migrations-bundle": "^1.3"
+    }
+}
