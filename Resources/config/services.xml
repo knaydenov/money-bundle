@@ -6,5 +6,8 @@
     <services>
         <service id="kna_money.parser.aggregate" class="Money\Parser\AggregateMoneyParser" public="true" />
         <service id="Money\Parser\AggregateMoneyParser" alias="kna_money.parser.aggregate"/>
+
+        <service id="kna_money.formatter.aggregate" class="Money\Formatter\AggregateMoneyFormatter" public="true" />
+        <service id="Money\Formatter\AggregateMoneyFormatter" alias="kna_money.formatter.aggregate"/>
     </services>
 </container>
