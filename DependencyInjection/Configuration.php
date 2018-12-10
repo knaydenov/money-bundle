@@ -21,6 +21,14 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('locale')
                     ->defaultValue('en')
                 ->end()
+                ->arrayNode('bitcoin')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->integerNode('fraction_digits')
+                            ->defaultValue(8)
+                        ->end()
+                    ->end()
+                ->end()
             ->end()
         ;
         return $treeBuilder;
