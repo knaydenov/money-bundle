@@ -18,6 +18,9 @@ class Configuration implements ConfigurationInterface
 
         $root
             ->children()
+                ->scalarNode('locale')
+                    ->defaultValue('en')
+                ->end()
             ->end()
         ;
         return $treeBuilder;

@@ -4,5 +4,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="kna_money.parser.aggregate" class="Money\Parser\AggregateMoneyParser" public="true" />
+        <service id="Money\Parser\AggregateMoneyParser" alias="kna_money.parser.aggregate"/>
     </services>
 </container>
