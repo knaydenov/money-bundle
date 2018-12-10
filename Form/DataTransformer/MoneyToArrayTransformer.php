@@ -40,6 +40,9 @@ class MoneyToArrayTransformer implements DataTransformerInterface
         }
 
         try {
+            if (!($data['currency'] ?? null)) {
+                throw new \InvalidArgumentException('Invalid currency');
+            }
             $money = new Money($data['amount'], $data['currency']);
         } catch (\InvalidArgumentException $exception) {
             throw new TransformationFailedException($exception->getMessage());
