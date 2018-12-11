@@ -6,6 +6,10 @@
     <services>
         <service id="Kna\MoneyBundle\Form\DataTransformer\CurrencyToStringTransformer" />
         <service id="Kna\MoneyBundle\Form\DataTransformer\MoneyToArrayTransformer" />
+        <service id="Kna\MoneyBundle\Form\DataTransformer\MoneyToStringTransformer">
+            <argument type="service" id="Money\Formatter\AggregateMoneyFormatter" />
+            <argument type="service" id="Money\Parser\AggregateMoneyParser" />
+        </service>
 
         <service id="Kna\MoneyBundle\Form\Type\CurrencyType">
             <argument type="service" id="kna_money.currencies.aggregate" />
@@ -15,6 +19,11 @@
 
         <service id="Kna\MoneyBundle\Form\Type\MoneyType">
             <argument type="service" id="Kna\MoneyBundle\Form\DataTransformer\MoneyToArrayTransformer" />
+            <tag name="form.type" />
+        </service>
+
+        <service id="Kna\MoneyBundle\Form\Type\MoneyParserType">
+            <argument type="service" id="Kna\MoneyBundle\Form\DataTransformer\MoneyToStringTransformer" />
             <tag name="form.type" />
         </service>
 
