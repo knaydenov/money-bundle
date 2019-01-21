@@ -1,0 +1,6 @@
+jms_serializer:
+  metadata:
+    directories:
+      money:
+        namespace_prefix: "Money"
+        path: '@KnaMoneyBundle/Resources/config/serializer'

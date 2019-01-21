@@ -1,0 +1,7 @@
+Money\Currency:
+  exclusion_policy: ALL
+
+  properties:
+    code:
+      expose: true
+      since_version: 1.0

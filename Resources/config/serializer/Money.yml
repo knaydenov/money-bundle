@@ -1,0 +1,16 @@
+Money\Money:
+  exclusion_policy: ALL
+
+  virtual_properties:
+    formatted:
+      exp: service('kna_money.formatter.intl_money').format(object)
+    isPositive:
+      exp: object.isPositive()
+
+  properties:
+    amount:
+      expose: true
+      since_version: 1.0
+    currency:
+      expose: true
+      since_version: 1.0
