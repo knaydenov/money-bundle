@@ -2,6 +2,7 @@
 namespace Kna\MoneyBundle\Tests\App\Controller;
 
 
+use JMS\Serializer\SerializerInterface;
 use Kna\MoneyBundle\Form\Type\MoneyType;
 use Money\Currency;
 use Money\Formatter\AggregateMoneyFormatter;
@@ -24,13 +25,20 @@ class DefaultController extends AbstractController
      */
     protected $formatter;
 
+    /**
+     * @var SerializerInterface
+     */
+    protected $serializer;
+
     public function __construct(
         AggregateMoneyParser $parser,
-        AggregateMoneyFormatter $formatter
+        AggregateMoneyFormatter $formatter,
+        SerializerInterface $serializer
     )
     {
         $this->parser = $parser;
         $this->formatter = $formatter;
+        $this->serializer = $serializer;
     }
 
     public function index(Request $request): Response
@@ -53,7 +61,8 @@ class DefaultController extends AbstractController
             'string' => $this->formatter->format($money),
             'money' => $this->parser->parse('$100'),
             'result' => $form->getData(),
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'json' => $this->serializer->serialize($money, 'json')
         ];
         return $this->render('index.html.twig', $data);
     }
