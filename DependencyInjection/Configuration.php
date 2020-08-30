@@ -13,8 +13,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $root = $treeBuilder->root('kna_money');
+        $treeBuilder = new TreeBuilder('kna_money');
+        $root = $treeBuilder->getRootNode();
 
         $root
             ->children()
